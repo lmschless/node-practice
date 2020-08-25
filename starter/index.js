@@ -2,6 +2,8 @@ import fs from 'fs';
 import http from 'http';
 import url from 'url';
 import path from 'path';
+import slugify from 'slugify';
+
 import replaceTemplate from './modules/replaceTemplate.js';
 const __dirname = path.resolve();
 //////////////////////////////////
@@ -48,6 +50,12 @@ const tempProduct = fs.readFileSync(
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
+
+const slugs = dataObj.map((el) => {
+  console.log(slugify(el.productName, { lower: true }));
+});
+
+// console.log(slugify('Fresh Avocados', { lower: true }));
 
 const server = http.createServer((req, res) => {
   const { query, pathname } = url.parse(req.url, true);

@@ -4,12 +4,13 @@
   "authors": "Luke Schlessinger",
   "version": "1.0.0",
   "main": "pathToMain",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "slugify": "^1.4.5"
   },
   "type": "module",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
+  "devDependencies": {}
 }
